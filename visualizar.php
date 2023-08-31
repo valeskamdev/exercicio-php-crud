@@ -12,6 +12,29 @@
     <hr>
     <p><a href="inserir.php">Inserir novo aluno</a></p>
 
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Primeira nota</th>
+          <th>Segunda nota</th>
+          <th>Média</th>
+          <th>Situação</th>
+          <th>Operações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Bernado</td>
+          <td>5.00</td>
+          <td>5.70</td>
+          <td>6.50</td>
+          <td>recuperação</td>
+          <td><a href="atualizar.php">Atualizar</a> <a href="excluir.php">Excluir</a></td>
+        </tr>
+      </tbody>
+    </table>
+
    <!-- Aqui você deverá criar o HTML que quiser e o PHP necessários
 para exibir a relação de alunos existentes no banco de dados.
 
