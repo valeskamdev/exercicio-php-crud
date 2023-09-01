@@ -23,7 +23,7 @@ $alunos = visualizarAlunos($conexao);
     <table border="1">
       <thead>
         <tr>
-          <th></th>
+          <th>Nome</th>
           <th>Primeira nota</th>
           <th>Segunda nota</th>
           <th>Média</th>
@@ -39,7 +39,7 @@ $alunos = visualizarAlunos($conexao);
           <td><?=$aluno["nota_1"]?></td>
           <td><?=$aluno["nota_2"]?></td>
           <td><?=mediaAluno($aluno["nota_1"], $aluno["nota_2"])?></td>
-          <td>recuperação</td>
+          <td><?=situacaoAluno(mediaAluno($aluno["nota_1"], $aluno["nota_2"]))?></td>
           <td><a href="atualizar.php">Atualizar</a> <a href="excluir.php">Excluir</a></td>
         </tr>
       <?php } ?>
