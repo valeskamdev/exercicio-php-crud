@@ -44,7 +44,7 @@ $alunos = visualizarAlunos($conexao);
           <td><?=$nota2?></td>
           <td><?=mediaAluno($nota1, $nota2)?></td>
           <td><?=situacaoAluno(mediaAluno($nota1, $nota2))?></td>
-          <td><a href="atualizar.php?id=<?=$aluno["id"]?>"<?=$aluno["id"]?> >Atualizar</a> <a href="excluir.php">Excluir</a></td>
+          <td><a href="atualizar.php?id=<?=$aluno["id"]?>"<?=$aluno["id"]?> >Atualizar</a> <a href="excluir.php?id=<?=$aluno["id"]?>">Excluir</a></td>
         </tr>
       <?php } ?>
       </tbody>

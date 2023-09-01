@@ -74,3 +74,16 @@ function atualizarAluno(
         die("Erro ao atualizar: " . $e->getMessage());
     }
 }
+
+function excluirAluno(PDO $conexao, int $id) : void
+{
+    $query = "DELETE FROM alunos WHERE id = :id";
+
+    try {
+        $consulta = $conexao->prepare($query);
+        $consulta->bindValue(":id", $id, PDO::PARAM_INT);
+        $consulta->execute();
+    } catch (Exception $e) {
+        die("Erro ao deletar: " . $e->getMessage());
+    }
+}
