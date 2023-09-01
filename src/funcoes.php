@@ -16,3 +16,18 @@ function inserirAluno(PDO $conexao, string $nome, float $nota_1, float $nota_2) 
         die("Erro ao inserir: " . $e->getMessage());
     }
 }
+
+function visualizarAlunos(PDO $conexao) : array
+{
+    $query = "SELECT * FROM alunos ORDER BY nome";
+
+    try {
+        $consulta = $conexao->prepare($query);
+        $consulta->execute();
+        $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
+    } catch (Exception $e) {
+        die("Erro ao visulizar: " . $e->getMessage());
+    }
+    return $resultado;
+}
+

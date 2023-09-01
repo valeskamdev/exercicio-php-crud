@@ -1,3 +1,10 @@
+<?php
+
+require_once "src/funcoes.php";
+
+$alunos = visualizarAlunos($conexao);
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -15,7 +22,7 @@
     <table border="1">
       <thead>
         <tr>
-          <th>Nome</th>
+          <th></th>
           <th>Primeira nota</th>
           <th>Segunda nota</th>
           <th>Média</th>
@@ -24,14 +31,17 @@
         </tr>
       </thead>
       <tbody>
+      <?php
+      foreach ($alunos as $aluno) { ?>
         <tr>
-          <td>Bernado</td>
-          <td>5.00</td>
-          <td>5.70</td>
+          <td><?=$aluno["nome"]?></td>
+          <td><?=$aluno["nota_1"]?></td>
+          <td><?=$aluno["nota_2"]?></td>
           <td>6.50</td>
           <td>recuperação</td>
           <td><a href="atualizar.php">Atualizar</a> <a href="excluir.php">Excluir</a></td>
         </tr>
+      <?php } ?>
       </tbody>
     </table>
 
