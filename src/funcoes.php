@@ -30,4 +30,3 @@ function visualizarAlunos(PDO $conexao) : array
     }
     return $resultado;
 }
-

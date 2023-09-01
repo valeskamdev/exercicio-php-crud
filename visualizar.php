@@ -1,6 +1,7 @@
 <?php
 
 require_once "src/funcoes.php";
+require_once "src/utilities/funcoes-utilitarias.php";
 
 $alunos = visualizarAlunos($conexao);
 ?>
@@ -37,7 +38,7 @@ $alunos = visualizarAlunos($conexao);
           <td><?=$aluno["nome"]?></td>
           <td><?=$aluno["nota_1"]?></td>
           <td><?=$aluno["nota_2"]?></td>
-          <td>6.50</td>
+          <td><?=mediaAluno($aluno["nota_1"], $aluno["nota_2"])?></td>
           <td>recuperação</td>
           <td><a href="atualizar.php">Atualizar</a> <a href="excluir.php">Excluir</a></td>
         </tr>
