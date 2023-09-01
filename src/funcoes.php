@@ -52,3 +52,25 @@ function visualizarUmAluno(PDO $conexao, int $id): array
 
     return $resultado;
 }
+
+function atualizarAluno(
+  PDO $conexao,
+  int $id,
+  string $nome,
+  float $nota_1,
+  float $nota_2
+): void {
+    $query
+      = "UPDATE alunos SET nome = :nome, nota_1 = :nota_1, nota_2 = :nota_2 WHERE id = :id";
+
+    try {
+        $consulta = $conexao->prepare($query);
+        $consulta->bindValue(":id", $id, PDO::PARAM_INT);
+        $consulta->bindValue(":nome", $nome, PDO::PARAM_STR);
+        $consulta->bindValue(":nota_1", $nota_1, PDO::PARAM_STR);
+        $consulta->bindValue(":nota_2", $nota_2, PDO::PARAM_STR);
+        $consulta->execute();
+    } catch (Exception $e) {
+        die("Erro ao atualizar: " . $e->getMessage());
+    }
+}

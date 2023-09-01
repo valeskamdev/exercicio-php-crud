@@ -5,6 +5,25 @@ require_once "src/utilities/funcoes-utilitarias.php";
 $id = filter_input( INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
 $aluno = visualizarUmAluno($conexao, $id);
 
+if (isset($_POST["atualizar-dados"])) {
+  $nome = filter_input(INPUT_POST, "nome", FILTER_SANITIZE_SPECIAL_CHARS);
+  $nota_1 = filter_input(
+    INPUT_POST,
+    "nota_1", FILTER_SANITIZE_NUMBER_FLOAT,
+    FILTER_FLAG_ALLOW_FRACTION
+  );
+  $nota_2 = filter_input(
+    INPUT_POST, "nota_2",
+    FILTER_SANITIZE_SPECIAL_CHARS,
+    FILTER_FLAG_ALLOW_FRACTION
+  );
+
+  atualizarAluno($conexao, $id, $nome, $nota_1, $nota_2);
+  header("location:visualizar.php");
+}
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -19,19 +38,19 @@ $aluno = visualizarUmAluno($conexao, $id);
 <div class="container">
     <h1>Atualizar dados do aluno </h1>
     <hr>
-    		
+
     <p>Utilize o formulário abaixo para atualizar os dados do aluno.</p>
 
     <form action="#" method="post">
-        
+
 	    <p><label for="nome">Nome:</label>
 	    <input type="text" name="nome" id="nome" value="<?=$aluno["nome"]?>" required></p>
-        
+
         <p><label for="primeira">Primeira nota:</label>
-	    <input name="primeira" type="number" id="primeira" value="<?=$aluno["nota_1"]?>" step="0.01" min="0.00" max="10.00" required></p>
-	    
+	    <input type="number" id="primeira" name="nota_1" value="<?=$aluno["nota_1"]?>" step="0.01" min="0.00" max="10.00" required></p>
+
 	    <p><label for="segunda">Segunda nota:</label>
-	    <input name="segunda" type="number" id="segunda" value="<?=$aluno["nota_2"]?>" step="0.01" min="0.00" max="10.00" required></p>
+	    <input type="number" id="segunda" name="nota_2" value="<?=$aluno["nota_2"]?>" step="0.01" min="0.00" max="10.00" required></p>
 
         <p>
             <label for="media">Média:</label>
@@ -42,10 +61,10 @@ $aluno = visualizarUmAluno($conexao, $id);
             <label for="situacao">Situação:</label>
 	        <input type="text" name="situacao" id="situacao" value="<?=situacaoAluno(mediaAluno($aluno["nota_1"], $aluno["nota_2"]))?>" readonly disabled>
         </p>
-	    
-        <button name="atualizar-dados">Atualizar dados do aluno</button>
-	</form>    
-    
+
+        <button type="submit" name="atualizar-dados">Atualizar dados do aluno</button>
+	</form>
+
     <hr>
     <p><a href="visualizar.php">Voltar à lista de alunos</a></p>
 
