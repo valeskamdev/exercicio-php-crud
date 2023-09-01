@@ -36,8 +36,8 @@ $alunos = visualizarAlunos($conexao);
       foreach ($alunos as $aluno) { ?>
         <tr>
           <td><?=$aluno["nome"]?></td>
-          <td><?=$aluno["nota_1"]?></td>
-          <td><?=$aluno["nota_2"]?></td>
+          <td><?=formatacaoDeNotas($aluno["nota_1"])?></td>
+          <td><?=formatacaoDeNotas($aluno["nota_2"])?></td>
           <td><?=mediaAluno($aluno["nota_1"], $aluno["nota_2"])?></td>
           <td><?=situacaoAluno(mediaAluno($aluno["nota_1"], $aluno["nota_2"]))?></td>
           <td><a href="atualizar.php?id=<?=$aluno["id"]?>"<?=$aluno["id"]?> >Atualizar</a> <a href="excluir.php">Excluir</a></td>
