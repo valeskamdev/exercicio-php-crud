@@ -1,3 +1,17 @@
+<?php
+require_once  "src/funcoes.php";
+
+if (isset($_POST["inserir"])) {
+  $nome = filter_input(INPUT_POST, "nome", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+  $nota_1 = filter_input(INPUT_POST, "nota_1", FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+  $nota_2 = filter_input(INPUT_POST, "nota_2", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+  inserirAluno($conexao, $nome, $nota_1, $nota_2);
+  header("location:visualizar.php");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -15,15 +29,15 @@
 
 	<form action="#" method="post">
 	    <p><label for="nome">Nome:</label>
-	    <input type="text" id="nome" required></p>
+	    <input type="text" id="nome" name="nome" required></p>
         
       <p><label for="primeira">Primeira nota:</label>
-	    <input type="number" id="primeira" step="0.01" min="0.00" max="10.00" required></p>
+	    <input type="number" id="primeira" name="nota_1" step="0.01" min="0.00" max="10.00" required></p>
 	    
 	    <p><label for="segunda">Segunda nota:</label>
-	    <input type="number" id="segunda" step="0.01" min="0.00" max="10.00" required></p>
+	    <input type="number" id="segunda" name="nota_2" step="0.01" min="0.00" max="10.00" required></p>
 	    
-      <button>Cadastrar aluno</button>
+      <button type="submit" name="inserir">Cadastrar aluno</button>
 	</form>
 
     <hr>

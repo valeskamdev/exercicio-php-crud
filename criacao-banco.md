@@ -7,7 +7,7 @@ CREATE TABLE alunos
 (
     id            INT           NOT NULL PRIMARY KEY AUTO_INCREMENT,
     nome          VARCHAR(30)   NOT NULL,
-    primeira_nota DECIMAL(4, 2) NOT NULL,
-    segunda_nota  DECIMAL(4, 2) NOT NULL
+    nota_1 DECIMAL(4, 2) NOT NULL,
+    nota_2  DECIMAL(4, 2) NOT NULL
 );
 ```
