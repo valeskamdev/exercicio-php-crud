@@ -11,8 +11,24 @@ $alunos = visualizarAlunos($conexao);
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lista de alunos - Exercício CRUD com PHP e MySQL</title>
 <link href="css/style.css" rel="stylesheet">
+<title>Lista de alunos - Exercício CRUD com PHP e MySQL</title>
+  <style>
+    .aprovado {
+      color: #6bb733;
+      background-color: #ceffac;
+    }
+
+    .recuperacao {
+       color: #b77e33;
+       background-color: #ffd1ac;
+     }
+
+    .reprovado {
+        color: #b73333;
+        background-color: #ffacac;
+      }
+  </style>
 </head>
 <body>
 <div class="container">
@@ -42,7 +58,7 @@ $alunos = visualizarAlunos($conexao);
           <td><?=$nota1?></td>
           <td><?=$nota2?></td>
           <td><?=mediaAluno($nota1, $nota2)?></td>
-          <td><?=situacaoAluno(mediaAluno($nota1, $nota2))?></td>
+          <td class="situacao"><?=situacaoAluno(mediaAluno($nota1, $nota2))?></td>
           <td><a href="atualizar.php?id=<?=$aluno["id"]?>">Atualizar</a></td>
           <td><a class="excluir" href="excluir.php?id=<?=$aluno["id"]?>">Excluir</a></td>
         </tr>
@@ -54,6 +70,7 @@ $alunos = visualizarAlunos($conexao);
 </div>
 
 <script src="js/confirma-exclusao.js"></script>
+<script src="js/situacao-aluno.js"></script>
 
 </body>
 </html>
