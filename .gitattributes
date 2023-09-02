@@ -1,4 +1,8 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Ignorar a pasta .idea do PhpStorm
+.idea/
+
+# Ignorar arquivos .DS_Store do macOS
 .DS_Store
-.idea

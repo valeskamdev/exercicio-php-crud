@@ -28,7 +28,7 @@ $alunos = visualizarAlunos($conexao);
           <th>Segunda nota</th>
           <th>Média</th>
           <th>Situação</th>
-          <th>Operações</th>
+          <th colspan="2">Operações</th>
         </tr>
       </thead>
       <tbody>
@@ -36,7 +36,6 @@ $alunos = visualizarAlunos($conexao);
       foreach ($alunos as $aluno) {
         $nota1 = formatacaoDeNotas($aluno["nota_1"]);
         $nota2 = formatacaoDeNotas($aluno["nota_2"]);
-
         ?>
         <tr>
           <td><?=$aluno["nome"]?></td>
@@ -44,21 +43,17 @@ $alunos = visualizarAlunos($conexao);
           <td><?=$nota2?></td>
           <td><?=mediaAluno($nota1, $nota2)?></td>
           <td><?=situacaoAluno(mediaAluno($nota1, $nota2))?></td>
-          <td><a href="atualizar.php?id=<?=$aluno["id"]?>"<?=$aluno["id"]?> >Atualizar</a> <a href="excluir.php?id=<?=$aluno["id"]?>">Excluir</a></td>
+          <td><a href="atualizar.php?id=<?=$aluno["id"]?>">Atualizar</a></td>
+          <td><a class="excluir" href="excluir.php?id=<?=$aluno["id"]?>">Excluir</a></td>
         </tr>
       <?php } ?>
       </tbody>
     </table>
 
-   <!-- Aqui você deverá criar o HTML que quiser e o PHP necessários
-para exibir a relação de alunos existentes no banco de dados.
-
-Obs.: não se esqueça de criar também os links dinâmicos para
-as páginas de atualização e exclusão. -->
-
-
     <p><a href="index.php">Voltar ao início</a></p>
 </div>
+
+<script src="js/confirma-exclusao.js"></script>
 
 </body>
 </html>
