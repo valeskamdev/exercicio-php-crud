@@ -2,7 +2,7 @@
 * text=auto
 
 # Ignorar a pasta .idea do PhpStorm
-.idea/
+idea/
 
 # Ignorar arquivos .DS_Store do macOS
 .DS_Store

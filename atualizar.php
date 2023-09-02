@@ -21,9 +21,6 @@ if (isset($_POST["atualizar-dados"])) {
   atualizarAluno($conexao, $id, $nome, $nota_1, $nota_2);
   header("location:visualizar.php");
 }
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -46,16 +43,17 @@ if (isset($_POST["atualizar-dados"])) {
 	    <p><label for="nome">Nome:</label>
 	    <input type="text" name="nome" id="nome" value="<?=$aluno["nome"]?>" required></p>
 
-        <p><label for="primeira">Primeira nota:</label>
-	    <input type="number" id="primeira" name="nota_1" value="<?=$aluno["nota_1"]?>" step="0.01" min="0.00" max="10.00" required></p>
+        <p><label for="primeiraNota">Primeira nota:</label>
+	    <input type="number" id="primeiraNota" name="nota_1" value="<?=$aluno["nota_1"]?>" step="0.01" min="0.00" max="10.00" required></p>
 
-	    <p><label for="segunda">Segunda nota:</label>
-	    <input type="number" id="segunda" name="nota_2" value="<?=$aluno["nota_2"]?>" step="0.01" min="0.00" max="10.00" required></p>
+	    <p><label for="segundaNota">Segunda nota:</label>
+	    <input type="number" id="segundaNota" name="nota_2" value="<?=$aluno["nota_2"]?>" step="0.01" min="0.00" max="10.00" required></p>
 
         <p>
             <label for="media">Média:</label>
             <input name="media" type="number" id="media" value="<?=mediaAluno($aluno["nota_1"], $aluno["nota_2"])?>"  step="0.01" min="0.00" max="10.00" readonly disabled>
         </p>
+        <span id="mensagemErro"></span>
 
         <p>
             <label for="situacao">Situação:</label>
@@ -70,6 +68,7 @@ if (isset($_POST["atualizar-dados"])) {
 
 </div>
 
+<script src="js/atualizacao-tempo-real.js"></script>
 
 </body>
 </html>
