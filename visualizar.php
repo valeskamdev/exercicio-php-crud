@@ -11,64 +11,67 @@ $alunos = visualizarAlunos($conexao);
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="css/style.css" rel="stylesheet">
-<title>Lista de alunos - Exercício CRUD com PHP e MySQL</title>
-  <style>
-    .aprovado {
-      color: #6bb733;
-      background-color: #ceffac;
-    }
-
-    .recuperacao {
-       color: #b77e33;
-       background-color: #ffd1ac;
-     }
-
-    .reprovado {
-        color: #b73333;
-        background-color: #ffacac;
-      }
-  </style>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css">
 </head>
+<title>Lista de alunos - Exercício CRUD com PHP e MySQL</title>
 <body>
 <div class="container">
     <h1>Lista de alunos</h1>
     <hr>
-    <p><a href="inserir.php">Inserir novo aluno</a></p>
+    <p><a  class="btn btn-secondary" href="inserir.php">Inserir novo aluno</a></p>
 
-    <table border="1">
-      <thead>
-        <tr>
-          <th>Nome</th>
-          <th>Primeira nota</th>
-          <th>Segunda nota</th>
-          <th>Média</th>
-          <th>Situação</th>
-          <th colspan="2">Operações</th>
-        </tr>
-      </thead>
-      <tbody>
-      <?php
-      foreach ($alunos as $aluno) {
-        $nota1 = formatacaoDeNotas($aluno["nota_1"]);
-        $nota2 = formatacaoDeNotas($aluno["nota_2"]);
-        ?>
-        <tr>
-          <td><?=$aluno["nome"]?></td>
-          <td><?=$nota1?></td>
-          <td><?=$nota2?></td>
-          <td><?=mediaAluno($nota1, $nota2)?></td>
-          <td class="situacao"><?=situacaoAluno(mediaAluno($nota1, $nota2))?></td>
-          <td><a href="atualizar.php?id=<?=$aluno["id"]?>">Atualizar</a></td>
-          <td><a class="excluir" href="excluir.php?id=<?=$aluno["id"]?>">Excluir</a></td>
-        </tr>
-      <?php } ?>
-      </tbody>
-    </table>
+      <div class="table-responsive">
+        <table class="table table-striped table-hover table-bordered">
+          <thead class="bg-primary">
+          <tr class="text-light">
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Nota 1</th>
+            <th scope="col">Nota 2</th>
+            <th scope="col">Média</th>
+            <th scope="col">Situação</th>
+            <th scope="col">Operações</th>
+          </tr>
+          </thead>
+          <tbody>
+          <?php
+          $i = 1;
 
-    <p><a href="index.php">Voltar ao início</a></p>
+          foreach ($alunos as $aluno) {
+          $nota1 = formatacaoDeNotas($aluno["nota_1"]);
+          $nota2 = formatacaoDeNotas($aluno["nota_2"]);
+          ?>
+          <tr>
+            <td scope="row" class="column1"><?=$i?></td>
+            <td><?=$aluno["nome"]?></td>
+            <td><?=$nota1?></td>
+            <td><?=$nota2?></td>
+            <td><?=mediaAluno($nota1, $nota2)?></td>
+            <td><span class="situacao badge rounded-pill"><?=situacaoAluno(mediaAluno($nota1, $nota2))?></span></td>
+            <td class="column7 operacoes"><a href="atualizar.php?id=<?=$aluno["id"]?>"><i class="fa-solid fa-pen-to-square"></i></a><a class="excluir" href="excluir.php?id=<?=$aluno["id"]?>"><i class="fa-solid fa-trash"></i></a></td>
+          </tr>
+          <?php
+          $i++;
+          }
+          ?>
+          </tbody>
+          <tfoot class="bg-primary">
+          <tr class="text-light">
+            <td>Aprovado: 12</td>
+            <td>Recuperação: 4</td>
+            <td>Reprovado: 23</td>
+            <td colspan="5">Total: <?=count($alunos)?></td>
+          </tr>
+          </tfoot>
+        </table>
+      </div>
+    <p class="mt-4"><a href="index.php">Voltar ao início</a></p>
+</div>
 </div>
 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"></script>
 <script src="js/confirma-exclusao.js"></script>
 <script src="js/situacao-aluno.js"></script>
 

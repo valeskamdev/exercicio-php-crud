@@ -17,8 +17,8 @@ if (isset($_POST["inserir"])) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css" rel="stylesheet"/>
 <title>Cadastrar um novo aluno - Exercício CRUD com PHP e MySQL</title>
-<link href="css/style.css" rel="stylesheet">
 </head>
 <body>
 <div class="container">
@@ -28,16 +28,23 @@ if (isset($_POST["inserir"])) {
     <p>Utilize o formulário abaixo para cadastrar um novo aluno.</p>
 
 	<form action="#" method="post">
-	    <p><label for="nome">Nome:</label>
-	    <input type="text" id="nome" name="nome" required></p>
+
+	    <p class="form-outline mb-4 border">
+	      <input class="form-control" type="text" id="nome" name="nome" required>
+        <label class="form-label" for="nome">Nome:</label>
+      </p>
         
-      <p><label for="primeira">Primeira nota:</label>
-	    <input type="number" id="primeira" name="nota_1" step="0.01" min="0.00" max="10.00" required></p>
+      <p class="form-outline mb-4 border">
+	      <input class="form-control"  type="number" id="primeira" name="nota_1" step="0.01" min="0.00" max="10.00" required>
+        <label  class="form-label" for="primeira">Primeira nota:</label>
+      </p>
 	    
-	    <p><label for="segunda">Segunda nota:</label>
-	    <input type="number" id="segunda" name="nota_2" step="0.01" min="0.00" max="10.00" required></p>
-	    
-      <button type="submit" name="inserir">Cadastrar aluno</button>
+	    <p class="form-outline mb-4 border">
+	      <input class="form-control"  type="number" id="segunda" name="nota_2" step="0.01" min="0.00" max="10.00" required>
+        <label class="form-label" for="segunda">Segunda nota:</label>
+      </p>
+
+      <button class="btn btn-primary type="submit" name="inserir">Cadastrar aluno</button>
 	</form>
 
     <hr>

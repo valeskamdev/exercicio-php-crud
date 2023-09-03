@@ -1,18 +1,39 @@
-html { font-size: 16px;}
-body { font-family: "Segoe UI", Arial, sans-serif; }
-
-.container {
-    max-width: 1200px;
-    width: 100%;
-    margin: auto;
+.fa-solid, .fas {
+  color: #101949;
 }
 
-a { 
-    color: blue;
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 1rem;
+.fa-solid:hover, .fas:focus,
+.fa-solid:focus, .fas:hover {
+  color: #445075;
 }
-h2 a { font-size: 0.9rem;}
 
-a:hover, a:focus { text-decoration: underline;}
+.operacoes {
+  display: flex;
+  justify-content: space-around;
+}
+
+.table-responsive {
+  max-height: 650px;
+  overflow-y: auto;
+  width: 100%;
+}
+
+table th,
+table td {
+  text-align: center;
+}
+
+table thead {
+  position: sticky;
+  top: 0;
+}
+
+table tfoot {
+  height: 100%;
+  position: sticky;
+  bottom: 0;
+}
+
+p.mt-4 {
+  text-decoration: underline;
+}
