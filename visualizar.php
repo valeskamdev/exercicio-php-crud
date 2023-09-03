@@ -14,8 +14,8 @@ $alunos = visualizarAlunos($conexao);
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
   <link rel="stylesheet" href="css/style.css">
-</head>
 <title>Lista de alunos - Exercício CRUD com PHP e MySQL</title>
+</head>
 <body>
 <div class="container">
     <h1>Lista de alunos</h1>
@@ -26,13 +26,13 @@ $alunos = visualizarAlunos($conexao);
         <table class="table table-striped table-hover table-bordered">
           <thead class="bg-primary">
           <tr class="text-light">
-            <th scope="col">#</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Nota 1</th>
-            <th scope="col">Nota 2</th>
-            <th scope="col">Média</th>
-            <th scope="col">Situação</th>
-            <th scope="col">Operações</th>
+            <th>#</th>
+            <th>Nome</th>
+            <th>Nota 1</th>
+            <th>Nota 2</th>
+            <th>Média</th>
+            <th>Situação</th>
+            <th>Operações</th>
           </tr>
           </thead>
           <tbody>
@@ -44,7 +44,7 @@ $alunos = visualizarAlunos($conexao);
           $nota2 = formatacaoDeNotas($aluno["nota_2"]);
           ?>
           <tr>
-            <td scope="row" class="column1"><?=$i?></td>
+            <td><?=$i?></td>
             <td><?=$aluno["nome"]?></td>
             <td><?=$nota1?></td>
             <td><?=$nota2?></td>
