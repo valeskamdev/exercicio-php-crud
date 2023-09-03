@@ -69,7 +69,6 @@ $alunos = visualizarAlunos($conexao);
       </div>
     <p class="mt-4"><a href="index.php">Voltar ao início</a></p>
 </div>
-</div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"></script>
 <script src="js/confirma-exclusao.js"></script>
