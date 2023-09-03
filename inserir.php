@@ -30,22 +30,22 @@ if (isset($_POST["inserir"])) {
 
 	<form action="#" method="post">
 
-	    <p class="form-outline mb-4 border">
-	      <input class="form-control" type="text" id="nome" name="nome" required>
+	    <p>
         <label class="form-label" for="nome">Nome</label>
+	      <input class="form-control" type="text" id="nome" name="nome" required>
       </p>
         
-      <p class="form-outline mb-4 border">
-	      <input class="form-control"  type="number" id="primeira" name="nota_1" step="0.01" min="0.00" max="10.00" required>
+      <p>
         <label  class="form-label" for="primeira">Primeira nota</label>
+	      <input class="form-control"  type="number" id="primeira" name="nota_1" step="0.01" min="0.00" max="10.00" required>
       </p>
 	    
-	    <p class="form-outline mb-4 border">
-	      <input class="form-control"  type="number" id="segunda" name="nota_2" step="0.01" min="0.00" max="10.00" required>
+	    <p>
         <label class="form-label" for="segunda">Segunda nota</label>
+	      <input class="form-control"  type="number" id="segunda" name="nota_2" step="0.01" min="0.00" max="10.00" required>
       </p>
 
-      <button class="btn btn-primary type="submit" name="inserir">Cadastrar aluno</button>
+      <button class="btn btn-primary" type="submit" name="inserir">Cadastrar aluno</button>
 	</form>
 
     <hr>
