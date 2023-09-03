@@ -59,9 +59,9 @@ $alunos = visualizarAlunos($conexao);
           </tbody>
           <tfoot class="bg-primary">
           <tr class="text-light">
-            <td>Aprovado: 12</td>
-            <td>Recuperação: 4</td>
-            <td>Reprovado: 23</td>
+            <td>Aprovado: <span id="aprovado"></span></td>
+            <td>Recuperação: <span id="recuperacao"></span></td>
+            <td>Reprovado: <span id="reprovado"></span></td>
             <td colspan="5">Total: <?=count($alunos)?></td>
           </tr>
           </tfoot>
@@ -74,6 +74,7 @@ $alunos = visualizarAlunos($conexao);
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"></script>
 <script src="js/confirma-exclusao.js"></script>
 <script src="js/situacao-aluno.js"></script>
+<script src="js/quantidade-situacao.js"></script>
 
 </body>
 </html>

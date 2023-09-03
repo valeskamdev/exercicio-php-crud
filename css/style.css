@@ -34,6 +34,6 @@ table tfoot {
   bottom: 0;
 }
 
-p.mt-4 {
+a[href="index.php"] {
   text-decoration: underline;
 }
