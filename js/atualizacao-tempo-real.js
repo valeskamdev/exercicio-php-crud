@@ -6,6 +6,7 @@ const situacao = document.getElementById("situacao");
 
 inputNota1.addEventListener('input', verificaMedia);
 inputNota2.addEventListener('input', verificaMedia);
+
 function verificaMedia() {
   const nota1 = parseFloat(inputNota1.value);
   const nota2 = parseFloat(inputNota2.value);
@@ -13,6 +14,7 @@ function verificaMedia() {
   if (isNaN(nota1) || isNaN(nota2)) {
     exibeErro();
   } else {
+    inputMedia.type = "number";
     mensagemErro.textContent = "";
     inputMedia.value = calculaMedia(nota1, nota2);
     verificaSituacao(); // atualiza a situação quando as notas mudam
@@ -20,7 +22,7 @@ function verificaMedia() {
 }
 
 function calculaMedia(nota1, nota2) {
-  return (nota1 + nota2) / 2;
+  return ((nota1 + nota2) / 2).toFixed(2);
 }
 
 function verificaSituacao() {
